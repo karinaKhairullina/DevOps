@@ -1,0 +1,44 @@
+#!/bin/bash
+
+log_file="./script.log"
+
+create_user_directory() {
+    local user="$1"
+    local directory="$directory_path/$user"
+    mkdir -p "$directory"
+    if [ -d "$directory" ]; then
+        chown "$user" "$directory"
+        chmod 755 "$directory"
+        echo "Ура, директория для $user создана: $directory" | tee -a "$log_file"
+    else
+        echo "Эх, директорию сделать не получилось для $user" | tee -a "$log_file"
+    fi
+}
+
+while getopts "d:" option; do
+    case $option in
+        d)
+            directory_path="$OPTARG"
+            ;;
+    esac
+done
+
+if [[ -z "$directory_path" ]]; then
+    read -rp "Путь к корневой директории: " directory_path
+fi
+
+if [ ! -d "$directory_path" ]; then
+    echo "Ошибочка: путь к корневой директории недоступен" | tee -a "$log_file"
+    exit 1
+fi
+
+echo "Создание в директории $directory_path..." | tee -a "$log_file"
+
+while IFS=: read -r username _ || [[ -n $username ]]; do
+    if [[ "$username" != "root" && "$username" != "nobody" && "$username" != "daemon" ]]; then
+        create_user_directory "$username"
+    fi
+done < <(awk -F: '{ if ($3 >= 1000 && $1 != "nobody") print $1 }' /etc/passwd)
+
+echo "Ура, победа,лог сохранен в $log_file." | tee -a "$log_file"
+
