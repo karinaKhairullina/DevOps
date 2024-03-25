@@ -36,7 +36,7 @@ ls -ld <путь к директории пользователя>
 5)С помощью команды "ansible-playbook playbookKarina.yml -i inventory.ini" запущен playbook
 и получен ответ 
 
-
+![Screen](https://github.com/karinaKhairullina/DevOps/blob/main/Снимок%20экрана%202024-03-25%20в%2017.16.02.png
 
 
 
