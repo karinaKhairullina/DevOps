@@ -49,7 +49,7 @@ ansible-galaxy init role1
 #### 5)Запустила тесты с помощью команды molecule test
 #### Для тестирования выбрала драйвер Vagrant
 и получила ответ
-![Screen]([karinaKhairullina/DevOps/blob/main/Снимок%20экрана%202024-04-14%20в%2015.49.59.png](https://github.com/karinaKhairullina/DevOps/blob/main/Снимок%20экрана%202024-04-14%20в%2015.49.59.png))
+![Screen](https://github.com/karinaKhairullina/DevOps/blob/main/Снимок%20экрана%202024-04-14%20в%2015.49.59.png)
 
 
 
