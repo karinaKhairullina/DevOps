@@ -1,56 +1,38 @@
-# DevOps
+Role Name
+=========
 
-## HW1:
-### Задание:
-Написать bash скрипт который создаст для всех пользователей системы отдельную директорию в корневой директории с именем пользователя и установит для нее права 755. При этом владельцем директории должен быть соответствующий пользователь. Путь до корневого каталога создания директорий, должен определяться через ключ "-d"  или если ключ не задан то должен быть "диалог" для определения пути пользователем. Лог должен писаться и в stdout и в файл.
+A brief description of the role goes here.
 
-### Шаги:
-#### 1)Принимает путь к корневой директории через ключ -d или через диалоговое окно, если ключ не указан.
-#### 2)Проверяет существование и доступность указанной корневой директории.
-#### 3)Создает директории для всех пользователей системы (кроме системных пользователей) в указанной корневой директории.
-#### 4)Устанавливает права на созданные директории: владелец - соответствующий пользователь, права - 755.
+Requirements
+------------
 
-### Как работать:
-#### 1)Скачать скрипт script.sh 
-#### 2)Команда: chmod +x script.sh
-#### 3)Команда: ./script.sh /Users/karina/ (путь к корневой директории)
-Либо указать путь через ключ -d, либо в интерактивном режиме
+Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
 
-#### Проверить права доступа:
-ls -ld <путь к директории пользователя>
+Role Variables
+--------------
 
-## HW2:
-### Задание: 
-#### написать playbook который должен будет:
-#### Создать пользователя на удаленной машине
-#### Сделать авторизацию ssh по ключам для пользователя
-#### Отключить авторизацию по паролю на сервере
-#### Создать директорию в /opt/ с правами для пользователя.
+A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
 
-### Шаги:
-#### 1)Сгенерированы SSH ключи
-#### 2)Добавлен публичный ключ на удаленный хост
-#### 3)Создайн файл inventory.ini и внутри указан удаленный хост 
-#### 4)Создан файл playbookKarina.yml и описаны задачи для настройки удаленной машины
-#### 5)С помощью команды "ansible-playbook playbookKarina.yml -i inventory.ini" запущен playbook
-и получен ответ 
+Dependencies
+------------
 
-![Screen](https://github.com/karinaKhairullina/DevOps/blob/main/Снимок%20экрана%202024-03-25%20в%2017.16.02.png)
+A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
 
+Example Playbook
+----------------
 
+Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
 
+    - hosts: servers
+      roles:
+         - { role: username.rolename, x: 42 }
 
+License
+-------
 
+BSD
 
+Author Information
+------------------
 
-
-
-
-
-
-
-
-
-
-
-
+An optional section for the role authors to include contact information, or a website (HTML is not allowed).
