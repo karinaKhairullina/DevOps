@@ -1,5 +1,27 @@
 ---
-# vars file for role1
-user_name: karina
-public_key_path: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
-directory_name: directory
+# tasks file for role1
+
+- name: karina
+  user:
+    name: "{{ karina }}"
+    shell: /bin/bash
+
+- name: Copy SSH public key
+  authorized_key:
+    user: "{{ karina }}"
+    key: {{ lookup('file', '~/.ssh/id_rsa.pub') }}
+
+- name: Disable password authentication
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: '^PasswordAuthentication'
+    line: 'PasswordAuthentication no'
+  notify: Restart SSH service
+
+- name: Create directory in /opt/
+  file:
+    path: /opt/{{ directory }}
+    state: directory
+    owner: "{{ karina }}"
+    group: "{{ karina }}"
+
