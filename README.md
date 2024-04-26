@@ -61,20 +61,21 @@ molecule test
 
 ## HW4:
 ### Задание:
-####Напишите Dockerfile для создания образа, который будет содержать веб-сервер Apache или Nginx и базу данных MySQL или postgresql. В Dockerfile должны использоваться инструкции: ####FROM, MAINTAINER, RUN, CMD, WORKDIR, ENV, ADD, COPY, VOLUME, USER, EXPOSE.
-####Dockerfile должен содержать комментарии с пояснениями того, что делается. 
-####Собранный образ должен иметь имя вида <фамилия>_<инициалы>_image_<текущая дата>. Рядом с dockerfile должен быть скрин, на котором будут видны все слои вашего image и их размер ####на диске и команда, которой вы это выведете.
+#### Напишите Dockerfile для создания образа, который будет содержать веб-сервер Apache или Nginx и базу данных MySQL или postgresql. В Dockerfile должны использоваться инструкции: 
+#### FROM, MAINTAINER, RUN, CMD, WORKDIR, ENV, ADD, COPY, VOLUME, USER, EXPOSE.
+#### Dockerfile должен содержать комментарии с пояснениями того, что делается. 
+#### Собранный образ должен иметь имя вида <фамилия>_<инициалы>_image_<текущая дата>. Рядом с dockerfile должен быть скрин, на котором будут видны все слои вашего image и их размер на диске и команда, которой вы это выведете.
 
 ### Шаги:
 #### 1)Прописала Dockerfile
 #### 2)Создала необходимые файлы и папки для работы
 #### 3)Собрала образ Docker, использовала команду
-docker build -t khairullina_ka_image_$(date +%Y%m%d) .
+` docker build -t khairullina_ka_image_$(date +%Y%m%d) . `
 
 Здесь (date +%Y%m%d) добавляет текущую дату к имени образа
 
 #### 4)Для просмотра слоев образа и их размера на диске использовала команду(Для лучшего поиска сразу ввела имя образа целиком)
-docker history khairullina_ka_image_$(date +%Y%m%d)
+` docker history khairullina_ka_image_$(date +%Y%m%d) `
 
 Получила следующее: 
 ![Screen](https://github.com/karinaKhairullina/DevOps/blob/main/Снимок%20экрана%202024-04-26%20в%2017.59.18.png)
