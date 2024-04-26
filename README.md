@@ -81,6 +81,28 @@ molecule test
 ![Screen](https://github.com/karinaKhairullina/DevOps/blob/main/Снимок%20экрана%202024-04-26%20в%2017.59.18.png)
 
 
+## HW4:
+### Задание:
+#### Напишите docker compose конфиг, для разворачивания двух контейнеров в одной сети (10.10.10.0/28) типа bridge: 
+#### 1 - Nginx или Apache или ваше самописное приложение на выбор, ему должны передаваться конфигурационные файлы через volume, порт 80 из контейнера должен быть доступен на хостовой машине по порту 8080
+#### 2 - mysql или postgres, каталог для хранения данных должен монтироваться как docker volume, docker volume должен быть описан в том же конфигурационном файле docker compose. Сервис с БД должен быть доступен из контейнера с веб-сервером по именам new_db, dev_db.
+
+### Шаги:
+#### 1)Создала docker-compose файл(docker-compose.yml)
+#### 2)Запустила контейнеры с помощью команды
+` docker-compose up -d `
+
+Получила следующее:
+![Screen](https://github.com/karinaKhairullina/DevOps/blob/main/Снимок%20экрана%202024-04-26%20в%2019.00.20.png)
+![Screen](https://github.com/karinaKhairullina/DevOps/blob/main/Снимок%20экрана%202024-04-26%20в%2019.00.34.png)
+
+
+
+
+
+
+
+
 
 
 
