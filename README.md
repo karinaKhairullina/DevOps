@@ -11,12 +11,12 @@
 
  ### Как работать:
  #### 1)Скачать скрипт script.sh 
- #### 2)Команда: chmod +x script.sh
- #### 3)Команда: ./script.sh /Users/karina/ (путь к корневой директории)
+ #### 2)Команда: ` chmod +x script.sh `
+ #### 3)Команда: ` ./script.sh /Users/karina/ `  (путь к корневой директории)
  Либо указать путь через ключ -d, либо в интерактивном режиме
 
  #### Проверить права доступа:
- ls -ld <путь к директории пользователя>
+ ` ls -ld <путь к директории пользователя> `
 
  ## HW2:
  ### Задание: 
@@ -41,7 +41,7 @@
 #### Та же постановка задачи что и на Ansible, но реализовать надо как роль. Создаваемые пользователи и их открытые ключи для авторизации должны быть определены через vars, и обязательно должно быть тестирование роли через molecule (рекомендую выбрать  Driver/Provider docker)
 
 Дополнительно сделала:
-pip install molecule -установка molecule
+` pip install molecule ` установка molecule 
 написание playbook.yml
 Создание ключей
 Скачала Vagrant 
@@ -49,12 +49,12 @@ pip install molecule -установка molecule
 
 ### Шаги:
 #### 1)Создала роль с помощью команды 
-ansible-galaxy init role1
+` ansible-galaxy init role1 `
 #### 2)В файле main.yml определила переменные(role1/vars/main.yml)
 #### 3)Далее в tasks/main.yml определила задачи роли(role1/tasks/main.yml)
 #### 4)Создала файл конфигурации molecule(role1/molecule/default/molecule.yml)
 #### 5)Запустила тесты с помощью команды 
-molecule test
+` molecule test `
 #### Для тестирования выбрала драйвер Vagrant
 и получила ответ
 ![Screen](https://github.com/karinaKhairullina/DevOps/blob/main/Снимок%20экрана%202024-04-14%20в%2015.49.59.png)
@@ -79,6 +79,28 @@ molecule test
 
 Получила следующее: 
 ![Screen](https://github.com/karinaKhairullina/DevOps/blob/main/Снимок%20экрана%202024-04-26%20в%2017.59.18.png)
+
+
+## HW5:
+### Задание:
+#### Напишите docker compose конфиг, для разворачивания двух контейнеров в одной сети (10.10.10.0/28) типа bridge: 
+#### 1 - Nginx или Apache или ваше самописное приложение на выбор, ему должны передаваться конфигурационные файлы через volume, порт 80 из контейнера должен быть доступен на хостовой машине по порту 8080
+#### 2 - mysql или postgres, каталог для хранения данных должен монтироваться как docker volume, docker volume должен быть описан в том же конфигурационном файле docker compose. Сервис с БД должен быть доступен из контейнера с веб-сервером по именам new_db, dev_db.
+
+### Шаги:
+#### 1)Создала docker-compose файл(docker-compose.yml)
+#### 2)Запустила контейнеры с помощью команды
+` docker-compose up -d `
+
+Получила следующее:
+![Screen](https://github.com/karinaKhairullina/DevOps/blob/main/Снимок%20экрана%202024-04-26%20в%2019.00.20.png)
+![Screen](https://github.com/karinaKhairullina/DevOps/blob/main/Снимок%20экрана%202024-04-26%20в%2019.00.34.png)
+
+
+
+
+
+
 
 
 
